@@ -54,6 +54,7 @@
     (leaf-keywords-init)))
 
 ;; ここにいっぱい設定を書く
+(leaf sh-mode :ensure t)
 
 ;; toolbar
 (tool-bar-mode 0)
