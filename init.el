@@ -54,7 +54,11 @@
     (leaf-keywords-init)))
 
 ;; ここにいっぱい設定を書く
-(leaf sh-mode :ensure t)
+;;(leaf sh-mode :ensure t)
+(leaf sh-mode
+    :custom ((system-uses-terminfo . nil))
+    )
+
 
 ;; toolbar
 (tool-bar-mode 0)
