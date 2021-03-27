@@ -54,11 +54,7 @@
     (leaf-keywords-init)))
 
 ;; ここにいっぱい設定を書く
-;;(leaf sh-mode :ensure t)
-(leaf sh-mode
-    :custom ((system-uses-terminfo . nil))
-    )
-
+(add-to-list 'auto-mode-alist '("\.sh\'" . sh-mode))
 
 ;; toolbar
 (tool-bar-mode 0)
@@ -69,6 +65,15 @@
 (leaf twilight-bright-theme :ensure t)
 (require 'twilight-bright-theme)
 (load-theme twilight-bright t)
+
+;; Customize Color
+;; 選択中の文字色＆背景
+(set-face-foreground 'mode-line "white")
+(set-face-background 'mode-line "teal")
+;; NOT選択中の文字色＆背景
+(set-face-foreground 'mode-line-inactive "black")
+(set-face-background 'mode-line-inactive "silver")
+
 
 (leaf ivy
   :doc "Incremental Vertical completYon"
