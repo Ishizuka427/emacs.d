@@ -8,3 +8,4 @@ $ cd ~/.emacs.d
 $ mv init.el init.el.bk
 $ git clone git@github.com:Ishizuka427/init.el.git
 ``` 
+3. 再起動
