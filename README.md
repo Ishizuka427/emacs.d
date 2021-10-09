@@ -2,11 +2,20 @@
 
 
 1. 素の emacs をインストールする
-2. emacsを起動する
-2. emacs.d 配下にある init.el を bk して git clone する
+https://www.gnu.org/software/emacs/download.html#nonfree
+```console
+$ brew install --cask emacs
 ```
-$ cd ~/.emacs.d
-$ mv init.el init.el.bk
-$ git clone git@github.com:Ishizuka427/init.el.git ~/.emacs.d
-``` 
-3. 再起動
+
+2. emacs を起動しない
+※homeディレクトリ配下に `.emacs.d` が自動生成されてしまうから
+
+3. homeディレクトリに、このリポジトリを `.emacs.d` として git clone してくる
+```console
+$ cd ~
+$ git clone git@github.com:Ishizuka427/emacs.d.git ~/.emacs.d
+```
+4. emacs を起動
+```console
+$ emacs
+```
