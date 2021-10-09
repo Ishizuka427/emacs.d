@@ -1,4 +1,4 @@
-# init.el
+# emacs.d
 
 
 1. 素の emacs をインストールする  
