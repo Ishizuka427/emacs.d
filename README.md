@@ -1,13 +1,13 @@
 # init.el
 
 
-1. 素の emacs をインストールする
+1. 素の emacs をインストールする  
 https://www.gnu.org/software/emacs/download.html#nonfree
 ```console
 $ brew install --cask emacs
 ```
 
-2. emacs を起動しない
+2. emacs を起動しない  
 ※homeディレクトリ配下に `.emacs.d` が自動生成されてしまうから
 
 3. homeディレクトリに、このリポジトリを `.emacs.d` として git clone してくる
