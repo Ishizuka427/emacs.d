@@ -2,6 +2,7 @@
 
 
 1. 素の emacs をインストールする
+2. emacsを起動する
 2. emacs.d 配下にある init.el を bk して git clone する
 ```
 $ cd ~/.emacs.d
