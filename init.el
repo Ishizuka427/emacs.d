@@ -45,9 +45,11 @@
     :ensure t
     :init
     ;; optional packages if you want to use :hydra, :el-get, :blackout,,,
+    ;; ここにインストールするパッケージをいっぱい書く
     (leaf hydra :ensure t)
     (leaf el-get :ensure t)
     (leaf blackout :ensure t)
+    (leaf terraform-mode :ensure t) 
 
     :config
     ;; initialize leaf-keywords.el
@@ -67,6 +69,7 @@
 ;; Theme
 (leaf twilight-bright-theme :ensure t)
 (require 'twilight-bright-theme)
+(setq custom-theme-directory "~/.emacs.d/elpa/twilight-bright-theme-20130605.843/")
 (load-theme twilight-bright t)
 
 ;; Customize Color
