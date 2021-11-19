@@ -56,6 +56,8 @@
 ;; ここにいっぱい設定を書く
 (add-to-list 'auto-mode-alist '("\.sh\'" . sh-mode))
 (add-to-list 'auto-mode-alist '("\.md\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\.yaml\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\.yml\'" . yaml-mode))
 
 ;; toolbar
 (tool-bar-mode 0)
