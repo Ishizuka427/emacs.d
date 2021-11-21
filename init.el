@@ -70,7 +70,7 @@
 (leaf twilight-bright-theme :ensure t)
 (require 'twilight-bright-theme)
 (setq custom-theme-directory "~/.emacs.d/elpa/twilight-bright-theme-20130605.843/")
-(load-theme twilight-bright t)
+(load-theme 'twilight-bright t)
 
 ;; Customize Color
 ;; 選択中の文字色＆背景
