@@ -49,7 +49,8 @@
     (leaf hydra :ensure t)
     (leaf el-get :ensure t)
     (leaf blackout :ensure t)
-    (leaf terraform-mode :ensure t) 
+    (leaf terraform-mode :ensure t)
+    (leaf gfm-mode :ensure t)
 
     :config
     ;; initialize leaf-keywords.el
