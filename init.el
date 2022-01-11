@@ -50,7 +50,6 @@
     (leaf el-get :ensure t)
     (leaf blackout :ensure t)
     (leaf terraform-mode :ensure t)
-    (leaf gfm-mode :ensure t)
     (leaf markdown-mode :ensure t)
 
     :config
@@ -164,4 +163,3 @@
 ;; End:
 
 ;;; init.el ends here
-
