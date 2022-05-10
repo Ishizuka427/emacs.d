@@ -62,7 +62,7 @@
 (add-to-list 'auto-mode-alist '("\.yaml\'" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\.yml\'" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\.tf\'" . terraform-mode))
-(add-hook 'terraform-mode-hook #'terraform-format-on-save-mode)
+(add-to-list 'auto-mode-alist '("\.tf\'" . terraform-format-on-save-mode))
 
 ;; toolbar
 (tool-bar-mode 0)
