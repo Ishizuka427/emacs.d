@@ -153,7 +153,7 @@
      ("melpa" . "https://melpa.org/packages/")
      ("org" . "https://orgmode.org/elpa/")))
  '(package-selected-packages
-   '(twilight-bright-theme blackout el-get hydra leaf-keywords leaf)))
+   '(magit twilight-bright-theme blackout el-get hydra leaf-keywords leaf)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -163,5 +163,12 @@
 ;; Local Variables:
 ;; indent-tabs-mode: nil
 ;; End:
+
+;; magit
+(defalias 'magit 'magit-status)
+(global-set-key "\C-xg" 'magit-status)
+
+(setenv "GIT_EDITOR" "emacsclient")
+(add-hook 'shell-mode-hook 'with-editor-export-git-editor)
 
 ;;; init.el ends here
