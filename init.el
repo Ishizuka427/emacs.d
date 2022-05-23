@@ -153,7 +153,7 @@
      ("melpa" . "https://melpa.org/packages/")
      ("org" . "https://orgmode.org/elpa/")))
  '(package-selected-packages
-   '(magit twilight-bright-theme blackout el-get hydra leaf-keywords leaf)))
+   '(iedit yaml-mode magit twilight-bright-theme blackout el-get hydra leaf-keywords leaf)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -170,5 +170,9 @@
 
 (setenv "GIT_EDITOR" "emacsclient")
 (add-hook 'shell-mode-hook 'with-editor-export-git-editor)
+
+;;iedit
+(add-to-list 'load-path "~/.emacs.d/iedit")
+(require 'iedit)
 
 ;;; init.el ends here
