@@ -175,4 +175,33 @@
 (add-to-list 'load-path "~/.emacs.d/iedit")
 (require 'iedit)
 
+;; Org modeの設定
+
+;; ファイルの場所
+(setq org-directory "~/Workspace/Org")
+;;(setq org-directory "~/Workspace/Org")
+(setq org-default-notes-file "notes.org")
+
+;; Org-captureの設定
+
+;; Org-captureを呼び出すキーシーケンス
+(define-key global-map "\C-cc" 'org-capture)
+;; Org-captureのテンプレート（メニュー）の設定
+(setq org-capture-templates
+      '(("n" "Note" entry (file+headline "~/Workspace/Org/notes.org" "Notes")
+         "* %?\nEntered on %U\n %i\n %a")
+        ))
+
+;; メモをC-M-^一発で見るための設定
+(defun show-org-buffer (file)
+  "Show an org-file FILE on the current buffer."
+  (interactive)
+  (if (get-buffer file)
+      (let ((buffer (get-buffer file)))
+        (switch-to-buffer buffer)
+        (message "%s" file))
+    (find-file (concat "~/Workspace/Org/" file))))
+(global-set-key (kbd "C-M-^") '(lambda () (interactive)
+                                 (show-org-buffer "notes.org")))
+
 ;;; init.el ends here
