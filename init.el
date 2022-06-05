@@ -50,7 +50,6 @@
     (leaf el-get :ensure t)
     (leaf blackout :ensure t)
     (leaf terraform-mode :ensure t)
-    (leaf gfm-mode :ensure t)
     (leaf markdown-mode :ensure t)
 
     :config
@@ -62,6 +61,8 @@
 (add-to-list 'auto-mode-alist '("\.md\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\.yaml\'" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\.yml\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\.tf\'" . terraform-mode))
+(add-to-list 'auto-mode-alist '("\.tf\'" . terraform-format-on-save-mode))
 
 ;; toolbar
 (tool-bar-mode 0)
@@ -152,7 +153,7 @@
      ("melpa" . "https://melpa.org/packages/")
      ("org" . "https://orgmode.org/elpa/")))
  '(package-selected-packages
-   '(twilight-bright-theme blackout el-get hydra leaf-keywords leaf)))
+   '(iedit yaml-mode magit twilight-bright-theme blackout el-get hydra leaf-keywords leaf)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -163,5 +164,44 @@
 ;; indent-tabs-mode: nil
 ;; End:
 
-;;; init.el ends here
+;; magit
+(defalias 'magit 'magit-status)
+(global-set-key "\C-xg" 'magit-status)
 
+(setenv "GIT_EDITOR" "emacsclient")
+(add-hook 'shell-mode-hook 'with-editor-export-git-editor)
+
+;;iedit
+(add-to-list 'load-path "~/.emacs.d/iedit")
+(require 'iedit)
+
+;; Org modeの設定
+
+;; ファイルの場所
+(setq org-directory "~/Workspace/Org")
+;;(setq org-directory "~/Workspace/Org")
+(setq org-default-notes-file "notes.org")
+
+;; Org-captureの設定
+
+;; Org-captureを呼び出すキーシーケンス
+(define-key global-map "\C-cc" 'org-capture)
+;; Org-captureのテンプレート（メニュー）の設定
+(setq org-capture-templates
+      '(("n" "Note" entry (file+headline "~/Workspace/Org/notes.org" "Notes")
+         "* %?\nEntered on %U\n %i\n %a")
+        ))
+
+;; メモをC-M-^一発で見るための設定
+(defun show-org-buffer (file)
+  "Show an org-file FILE on the current buffer."
+  (interactive)
+  (if (get-buffer file)
+      (let ((buffer (get-buffer file)))
+        (switch-to-buffer buffer)
+        (message "%s" file))
+    (find-file (concat "~/Workspace/Org/" file))))
+(global-set-key (kbd "C-M-^") '(lambda () (interactive)
+                                 (show-org-buffer "notes.org")))
+
+;;; init.el ends here
