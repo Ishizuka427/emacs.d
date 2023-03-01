@@ -51,6 +51,7 @@
     (leaf blackout :ensure t)
     (leaf terraform-mode :ensure t)
     (leaf markdown-mode :ensure t)
+    (leaf yaml-mode :ensure t)
 
     :config
     ;; initialize leaf-keywords.el
@@ -70,10 +71,10 @@
 (scroll-bar-mode 1)
 
 ;; Theme
-(leaf twilight-bright-theme :ensure t)
-(require 'twilight-bright-theme)
-(setq custom-theme-directory "~/.emacs.d/elpa/twilight-bright-theme-20130605.843/")
-(load-theme 'twilight-bright t)
+;;(leaf afternoon-theme :ensure t)
+;;(require 'afternoon-theme)
+;;(setq custom-theme-directory "~/.emacs.d/elpa/afternoon-theme-20140104.1859/")
+;;(load-theme 'afternoon-theme t)
 
 ;; Customize Color
 ;; 選択中の文字色＆背景
@@ -148,18 +149,22 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes '(afternoon))
+ '(custom-safe-themes
+   '("57e3f215bef8784157991c4957965aa31bac935aca011b29d7d8e113a652b693" default))
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("melpa" . "https://melpa.org/packages/")
      ("org" . "https://orgmode.org/elpa/")))
  '(package-selected-packages
-   '(iedit yaml-mode magit twilight-bright-theme blackout el-get hydra leaf-keywords leaf)))
+   '(afternoon-theme doom-themes zenburn-theme iedit yaml-mode magit twilight-bright-theme blackout el-get hydra leaf-keywords leaf)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-level-1 ((t (:inherit outline-1 :extend nil :background "LavenderBlush1" :foreground "PaleVioletRed1"))))
+ '(org-link ((t (:foreground "DarkOrchid1" :underline t)))))
 ;; Local Variables:
 ;; indent-tabs-mode: nil
 ;; End:
